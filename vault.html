@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ricardo Portfolio Vault</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body class="vault-body">
+  <div class="vault-shell">
+    <div class="vault-card">
+      <div class="vault-header">
+        <div>
+          <h1>Private Credentials Vault</h1>
+          <p class="vault-subtitle">
+            Encrypted access to login credentials for banks, brokerages, and financial accounts.
+          </p>
+        </div>
+        <a class="vault-home-link" href="index.html">← Back to Portfolio</a>
+      </div>
+
+      <div id="passwordPrompt" class="vault-panel">
+        <label for="vaultPassword">Enter Vault Password</label>
+        <input
+          type="password"
+          id="vaultPassword"
+          placeholder="Enter password"
+          autocomplete="off"
+        />
+        <div class="vault-actions">
+          <button id="unlockVaultBtn" class="vault-btn">Unlock Vault</button>
+        </div>
+        <p id="vaultError" class="vault-error"></p>
+        <p class="vault-note">
+          The credentials PDF is stored on GitHub only in encrypted form and is decrypted in your browser after entering the correct password.
+        </p>
+      </div>
+
+      <div id="vaultLoading" class="vault-loading hidden">
+        Decrypting credentials PDF...
+      </div>
+
+      <div id="vaultContent" class="vault-content hidden">
+        <div class="vault-topbar">
+          <h2>Login Credentials</h2>
+          <div class="vault-actions">
+            <button id="downloadPdfBtn" class="vault-btn secondary">Download Decrypted PDF</button>
+            <button id="lockVaultBtn" class="vault-btn secondary">Lock Vault</button>
+          </div>
+        </div>
+
+        <p class="section-description">
+          This PDF has been decrypted locally in the browser after password verification.
+        </p>
+
+        <div class="content-card pdf-card full-width-pdf-card">
+          <div class="card-header-row">
+            <h4>Credentials PDF</h4>
+          </div>
+
+          <div class="pdf-embed-wrapper pdf-embed-wrapper-large vault-pdf-wrapper">
+            <iframe
+              id="vaultPdfFrame"
+              title="Decrypted Credentials PDF"
+              class="pdf-embed pdf-embed-large">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vault.js"></script>
+</body>
+</html>

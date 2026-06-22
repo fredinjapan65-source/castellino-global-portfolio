@@ -1,0 +1,10 @@
+{
+  "name": "ricardo-portfolio-vault",
+  "version": "1.0.0",
+  "description": "Encrypt login_credentials.pdf for GitHub-hosted portfolio vault",
+  "main": "encrypt_pdf.js",
+  "type": "module",
+  "scripts": {
+    "encrypt-pdf": "node encrypt_pdf.js"
+  }
+}
